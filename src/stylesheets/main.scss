@@ -1,0 +1,18 @@
+/* Note: This uses PostCSS */
+
+body {
+  background: #333;
+
+  h1, p {
+    color: #ddd;
+  }
+
+  a {
+    color: #fff;
+    text-decoration: none;
+
+    &.active {
+      text-decoration: underline;
+    }
+  }
+}

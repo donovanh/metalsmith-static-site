@@ -1,0 +1,12 @@
+{
+  "metadata": {
+    "title": "Design at Kitman",
+    "description": "Showing guidelines and research work in the design side of Kitman"
+  },
+  "plugins": {
+    "metalsmith-markdown": {},
+    "metalsmith-permalinks": {
+      "pattern": ":title"
+    }
+  }
+}

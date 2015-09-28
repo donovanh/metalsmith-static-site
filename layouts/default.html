@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ pageTitle }}</title>
+  <link rel="stylesheet" href="/stylesheets/vendor/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="/stylesheets/main.css">
+</head>
+<body>
+
+  <!-- Importing Nunjucks Macro -->
+  {% import 'layouts/macros/navigation.html' as nav %}
+
+  {{ nav.active(menuLink) }}
+
+  <!-- You write code for this content block in another file -->
+  {% block content %} {% endblock %}
+
+  <script src="js/main.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
