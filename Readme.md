@@ -1,16 +1,32 @@
 
-# Design & Research 
+# Metalsmith / Gulp static site generator
 
-This is a static website that showcases design guidelines, areas of research and experiments.
+This repo brings together a Gulp-based static site generating process using [Metalsmith](http://metalsmith.io) for content processing, templating and collections.
 
-## Structure and purpose
+* CSS: Sass & Autoprefixer
+* JS: Concatenation using Gulp
+* Metalsmith, with plugins:
+  * Nunjucks templating
+  * Drafts
+  * Markdown
+  * Permalinks
+  * Watch
 
-[TODO: Set out the purpose]
+## Setup
 
-## Adding to the site
+First, clone this repo to your machine. Then in the command line, run the following to install dependencies (Node is required):
 
-This site is served using a [Gulp]() process, and consists of files generated with [Metalsmith](http://metalsmith.io). The site includes:
+    npm install
 
-* Nunjucks templating
+Then run the project using the default Gulp task:
 
-[TODO: Set out the setup/editing and deploy processes]
+    gulp
+
+This should open a browser window with the generated static site in place.
+
+## TODO
+
+Some things to be added:
+
+* Collections support for pages, and automatic generation of menus
+* Deploying to GH-Pages (or elsewhere within Gulp)

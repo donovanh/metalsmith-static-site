@@ -1,5 +1,5 @@
 {
-  "name": "design-kitman",
+  "name": "metalsmith-gulp-sass",
   "private": true,
   "dependencies": {
     "metalsmith": "^2.1.0",

@@ -26,7 +26,7 @@ gulp.task('start-metalsmith', function () {
   });
 });
 
-gulp.task('start-browserSync',['start-metalsmith', 'styles:sass', 'scripts'], function () {
+gulp.task('start-browserSync',['start-metalsmith', 'styles', 'scripts'], function () {
   bs = browserSync({
     notify: true,
     // tunnel: '',
@@ -37,7 +37,7 @@ gulp.task('start-browserSync',['start-metalsmith', 'styles:sass', 'scripts'], fu
 });
 
 // Compiles the SASS files and moves them into the 'build/stylesheets' directory
-gulp.task('styles:sass', function () {
+gulp.task('styles', function () {
   return gulp.src('src/stylesheets/**/*.scss')
     .pipe($.sass({outputStyle: 'compressed'}))
     .pipe($.autoprefixer('last 1 version', { cascade: true }))
@@ -60,11 +60,11 @@ gulp.task('scripts', function() {
 
 // Watch content and templates to rebuild on change
 gulp.task('watch', function () {
-  gulp.watch(['src/stylesheets/**/*.scss'], ['styles:sass', reload]);
+  gulp.watch(['src/stylesheets/**/*.scss'], ['styles', reload]);
   gulp.watch(['src/javascripts/**/*.js'], ['scripts', reload]);
   gulp.watch(['build/stylesheets/*.css', 'build/javascripts/**/*.js'], reload);
   gulp.watch(['build/**/*.html'], reload);
 });
 
 // Default task to start site and serve it
-gulp.task('default', ['start-browserSync', 'styles:sass', 'scripts', 'watch']);
+gulp.task('default', ['start-browserSync', 'styles', 'scripts', 'watch']);

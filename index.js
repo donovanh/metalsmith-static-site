@@ -3,21 +3,13 @@ var Metalsmith = require('metalsmith'),
     markdown = require('metalsmith-markdown'),
     permalinks = require('metalsmith-permalinks'),
     layouts = require('metalsmith-layouts'),
-    postcss = require('metalsmith-postcss'),
     watch = require('metalsmith-watch');
-
-// Define the PostCSS plugins
-var plugins = [
-  require('postcss-import'),
-  require('postcss-nested')
-];
 
 Metalsmith(__dirname)
   .use(drafts())
   .use(markdown())
   .use(permalinks('blog/:title'))
   .use(layouts('nunjucks'))
-  .use(postcss(plugins))
   .source('./src/pages')
   .destination('./build')
   .use(

@@ -1,7 +1,7 @@
 {
   "metadata": {
-    "title": "Design at Kitman",
-    "description": "Showing guidelines and research work in the design side of Kitman"
+    "title": "A Metalsmith / Gulp static site generator",
+    "description": "Best of both worlds"
   },
   "plugins": {
     "metalsmith-markdown": {},
