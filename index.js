@@ -3,15 +3,20 @@ var Metalsmith = require('metalsmith'),
     markdown = require('metalsmith-markdown'),
     permalinks = require('metalsmith-permalinks'),
     layouts = require('metalsmith-layouts'),
-    watch = require('metalsmith-watch');
+    watch = require('metalsmith-watch'),
+    sass = require('metalsmith-sass');
 
 Metalsmith(__dirname)
+  .source('./src')
+  .destination('./build')
   .use(drafts())
   .use(markdown())
   .use(permalinks('blog/:title'))
   .use(layouts('nunjucks'))
-  .source('./src/pages')
-  .destination('./build')
+  .use(sass({
+    outputStyle: "expanded",
+    outputDir: "css"
+  }))
   .use(
     watch({
       paths: {
