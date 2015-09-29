@@ -4,10 +4,11 @@ var Metalsmith = require('metalsmith'),
     permalinks = require('metalsmith-permalinks'),
     layouts = require('metalsmith-layouts'),
     watch = require('metalsmith-watch'),
-    sass = require('metalsmith-sass');
+    sass = require('metalsmith-sass'),
+    serve = require('metalsmith-serve');
 
 Metalsmith(__dirname)
-  .source('./src')
+  .source('./content')
   .destination('./build')
   .use(drafts())
   .use(markdown())
@@ -15,7 +16,7 @@ Metalsmith(__dirname)
   .use(layouts('nunjucks'))
   .use(sass({
     outputStyle: "expanded",
-    outputDir: "css"
+    outputDir: "stylesheets"
   }))
   .use(
     watch({
@@ -23,9 +24,10 @@ Metalsmith(__dirname)
         "${source}/**/*": true,
         "layouts/**/*": true,
       },
-      livereload: false,
+      livereload: true,
     })
   )
+  .use(serve({}))
   .build(function(err) {
       if (err) {
           console.log(err);
