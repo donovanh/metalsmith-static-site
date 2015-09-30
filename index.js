@@ -1,7 +1,6 @@
 var Metalsmith = require('metalsmith'),
     drafts = require('metalsmith-drafts'),
     markdown = require('metalsmith-markdown'),
-    permalinks = require('metalsmith-permalinks'),
     layouts = require('metalsmith-layouts'),
     watch = require('metalsmith-watch'),
     sass = require('metalsmith-sass'),
@@ -12,7 +11,6 @@ Metalsmith(__dirname)
   .destination('./build')
   .use(drafts())
   .use(markdown())
-  //.use(permalinks('blog/:title'))
   .use(layouts('nunjucks'))
   .use(sass({
     outputDir: function(originalPath) {
@@ -24,9 +22,9 @@ Metalsmith(__dirname)
     watch({
       paths: {
         "${source}/**/*": true,
-        "layouts/**/*": true,
+        "layouts/**/*": "**/*"
       },
-      livereload: true,
+      livereload: false,
     })
   )
   .use(serve({}))

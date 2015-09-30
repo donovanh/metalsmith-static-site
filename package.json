@@ -12,5 +12,13 @@
     "metalsmith-serve": "0.0.4",
     "metalsmith-watch": "^1.0.1",
     "nunjucks": "^2.1.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.9.6",
+    "gulp": "^3.9.0",
+    "gulp-load-plugins": "^0.10.0",
+    "gulp-nodemon": "^2.0.4",
+    "gulp-run": "^1.6.11",
+    "gulp-util": "^3.0.6"
   }
 }
