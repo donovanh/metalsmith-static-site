@@ -12,11 +12,13 @@ Metalsmith(__dirname)
   .destination('./build')
   .use(drafts())
   .use(markdown())
-  .use(permalinks('blog/:title'))
+  //.use(permalinks('blog/:title'))
   .use(layouts('nunjucks'))
   .use(sass({
-    outputStyle: "expanded",
-    outputDir: "stylesheets"
+    outputDir: function(originalPath) {
+      // this will change scss/some/path to css/some/path
+      return originalPath.replace("scss", "stylesheets");
+    }
   }))
   .use(
     watch({
